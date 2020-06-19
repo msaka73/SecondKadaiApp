@@ -10,11 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var text: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        label.text = "名前を入力してください"
         // Do any additional setup after loading the view.
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController : NextViewController = segue.destination as! NextViewController
+        nextViewController.name = text.text!
+        
+    }
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue){
+        
+    }
 
 }
 
